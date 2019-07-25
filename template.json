@@ -10,7 +10,7 @@
       }
     },
     "variables": {
-      "deploymentUrlBase": "https://raw.githubusercontent.com/SkillsFundingAgency/das-platform-building-blocks/master/templates/",
+      "deploymentUrlBase": "https://raw.githubusercontent.com/SkillsFundingAgency/das-platform-building-blocks/tree/mjw/DASD-6063/templates/",
       "CosmosDbName": "[concat('wev-', toLower(parameters('EnvironmentName')),'-test-cdb')]"
     },
     "resources": [
