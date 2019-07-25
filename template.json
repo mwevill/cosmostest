@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "EnvironmentName": {
+        "type": "string"
+      }
+    },
+    "variables": {
+      "deploymentUrlBase": "https://raw.githubusercontent.com/SkillsFundingAgency/das-platform-building-blocks/master/templates/",
+      "CosmosDbName": "[concat('wev-', toLower(parameters('EnvironmentName')),'-test-cdb')]"
+    },
+    "resources": [
+      {
+        "apiVersion": "2017-05-10",
+        "name": "[variables('CosmosDbName')]",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[concat(variables('deploymentUrlBase'),'cosmos-db.json')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parameters": {
+            "cosmosDbName": {
+              "value": "[variables('CosmosDbName')]"
+            },
+            "cosmosDbType": {
+              "value": "MongoDB"
+            },
+            "defaultConsistencyLevel": {
+              "value": "Strong"
+            }
+          }
+        },
+        "dependsOn": []
+      }
+    ],
+    "outputs": {}
+  }
