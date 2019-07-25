@@ -33,9 +33,6 @@
             },
             "defaultConsistencyLevel": {
               "value": "Strong"
-            },
-            "ipRangeFilter": {
-              "value": "217.33.132.234"
             }
           }
         },
